@@ -1,70 +1,347 @@
-# Getting Started with Create React App
+# Student Management System - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-19.1.0-blue.svg)
+![Node.js](https://img.shields.io/badge/Node.js-16+-green.svg)
+![CSS3](https://img.shields.io/badge/CSS3-Modern-orange.svg)
+![Responsive](https://img.shields.io/badge/Design-Responsive-purple.svg)
 
-## Available Scripts
+Una aplicación web moderna y responsive desarrollada con React para gestionar información de estudiantes. Interfaz de usuario intuitiva y amigable que se conecta con una API REST de Spring Boot.
 
-In the project directory, you can run:
+## 🚀 Características
 
-### `npm start`
+- **Interfaz moderna y responsive** adaptable a dispositivos móviles y desktop
+- **Formulario de registro** con validaciones en tiempo real
+- **Lista de estudiantes** con funciones de búsqueda y filtrado
+- **Operaciones CRUD completas** (Crear, Leer, Actualizar, Eliminar)
+- **Búsqueda en tiempo real** por nombre y email
+- **Filtrado por programa académico**
+- **Confirmación de eliminación** con modal
+- **Mensajes de éxito y error** informativos
+- **Navegación intuitiva** con React Router
+- **Diseño adaptativo** para móviles y tablets
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🏗️ Estructura del Proyecto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+src/
+├── components/
+│   ├── Header.js                    # Barra de navegación
+│   ├── Header.css
+│   ├── Home.js                      # Página de inicio
+│   ├── Home.css
+│   ├── StudentForm.js               # Formulario para crear/editar
+│   ├── StudentForm.css
+│   ├── StudentList.js               # Lista de estudiantes
+│   └── StudentList.css
+├── services/
+│   ├── api.js                       # Configuración de Axios
+│   └── studentService.js            # Servicios para API calls
+├── App.js                           # Componente principal
+├── App.css                          # Estilos globales
+├── index.js                         # Punto de entrada
+└── index.css                        # Estilos base
+public/
+├── index.html
+├── favicon.ico
+└── manifest.json
+```
 
-### `npm test`
+## 📋 Prerrequisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Node.js 16+** y npm
+- **Backend API** ejecutándose en `http://localhost:8080`
+- **Navegador web moderno** (Chrome, Firefox, Safari, Edge)
 
-### `npm run build`
+## 🛠️ Instalación y Configuración
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clonar el repositorio
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/AnderssonProgramming/client-spring-rest-rt.git
+cd client-spring-rest-rt
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Instalar dependencias
 
-### `npm run eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 3. Configurar variables de entorno
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Crear un archivo `.env` en la raíz del proyecto:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```env
+# React Environment Variables
+REACT_APP_API_URL=http://localhost:8080/api
+REACT_APP_APP_NAME=Student Management System
+REACT_APP_VERSION=1.0.0
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Development settings
+GENERATE_SOURCEMAP=true
+```
 
-## Learn More
+### 4. Ejecutar la aplicación
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+La aplicación estará disponible en: `http://localhost:3000`
 
-### Code Splitting
+## 🎯 Funcionalidades Principales
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 🏠 Página de Inicio
+- **Vista general del sistema** con descripción de características
+- **Navegación rápida** a las principales funciones
+- **Diseño atractivo** con gradientes y animaciones
 
-### Analyzing the Bundle Size
+### 📝 Registro de Estudiantes
+- **Formulario intuitivo** con validaciones en tiempo real
+- **Campos obligatorios:**
+  - Nombre completo (mínimo 2 caracteres)
+  - Email válido (único en el sistema)
+  - Fecha de nacimiento (debe ser pasada, edad entre 16-100 años)
+  - Programa académico (selección de lista predefinida)
+- **Mensajes de error** descriptivos
+- **Confirmación de éxito** antes de redireccionar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 📋 Lista de Estudiantes
+- **Tabla responsive** con información completa
+- **Búsqueda en tiempo real** por nombre o email
+- **Filtro por programa académico**
+- **Acciones por estudiante:**
+  - Editar información
+  - Eliminar con confirmación
+- **Información mostrada:**
+  - Nombre completo
+  - Email (con enlace para contacto)
+  - Edad calculada automáticamente
+  - Fecha de nacimiento formateada
+  - Programa académico con badge visual
 
-### Making a Progressive Web App
+### ✏️ Edición de Estudiantes
+- **Formulario pre-rellenado** con datos actuales
+- **Validaciones consistentes** con el formulario de creación
+- **Actualización en tiempo real** de la información
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎨 Diseño y UX
 
-### Advanced Configuration
+### Paleta de Colores
+- **Primario:** Gradiente azul-púrpura (#667eea → #764ba2)
+- **Secundario:** Grises suaves (#e2e8f0, #f7fafc)
+- **Éxito:** Verde (#38a169)
+- **Error:** Rojo (#e53e3e)
+- **Fondo:** Gris claro (#f7fafc)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Tipografía
+- **Fuente principal:** System fonts (San Francisco, Segoe UI, Roboto)
+- **Peso:** Regular (400) para texto, Semi-bold (600) para títulos
+- **Tamaños responsivos** adaptados a diferentes dispositivos
+
+### Animaciones
+- **Transiciones suaves** en hover states
+- **Transformaciones sutiles** en botones y cards
+- **Loading states** durante las operaciones
+
+## 📱 Responsividad
+
+### Breakpoints
+- **Desktop:** 1200px+
+- **Tablet:** 768px - 1199px
+- **Mobile:** 320px - 767px
+
+### Adaptaciones Móviles
+- **Navegación optimizada** para pantallas pequeñas
+- **Formularios adaptados** con inputs más grandes
+- **Tabla responsive** con scroll horizontal cuando es necesario
+- **Botones de tamaño apropiado** para touch
+
+## 🔗 Integración con Backend
+
+### Servicios API
+```javascript
+// Crear estudiante
+POST /api/students
+{
+  "name": "Juan Pérez",
+  "email": "juan@email.com",
+  "birthDate": "1995-05-15",
+  "program": "Computer Science"
+}
+
+// Obtener todos los estudiantes
+GET /api/students
+
+// Actualizar estudiante
+PUT /api/students/{id}
+
+// Eliminar estudiante
+DELETE /api/students/{id}
+
+// Buscar por nombre
+GET /api/students/search?name=Juan
+```
+
+### Manejo de Errores
+- **Interceptores de Axios** para manejo centralizado
+- **Mensajes de error** user-friendly
+- **Fallbacks** para cuando la API no está disponible
+- **Timeouts** configurables para requests
+
+## 🧪 Scripts Disponibles
+
+### Desarrollo
+```bash
+npm start                # Servidor de desarrollo
+npm run build           # Construir para producción
+npm test               # Ejecutar tests
+npm run eject          # Exponer configuración de webpack
+```
+
+### Análisis
+```bash
+npm run build          # Generar build optimizado
+npm install -g serve   # Instalar servidor estático
+serve -s build         # Servir build de producción
+```
+
+## 🌟 Características Técnicas
+
+### Dependencias Principales
+- **React 19.1.0** - Framework de UI
+- **React Router DOM** - Navegación y routing
+- **React Hook Form** - Manejo de formularios
+- **Axios** - Cliente HTTP para API calls
+
+### Validaciones
+- **Validación en tiempo real** mientras el usuario escribe
+- **Múltiples tipos de validación:**
+  - Campos requeridos
+  - Formato de email
+  - Longitud mínima
+  - Fechas válidas
+  - Rango de edad
+
+### Performance
+- **Lazy loading** de componentes
+- **Memoización** de operaciones costosas
+- **Debounce** en búsquedas
+- **Optimización de re-renders**
+
+## 📦 Construcción para Producción
+
+### Build Optimizado
+```bash
+npm run build
+```
+
+### Optimizaciones Incluidas
+- **Minificación** de CSS y JavaScript
+- **Tree shaking** para eliminar código no usado
+- **Compresión** de assets
+- **Source maps** para debugging (opcional)
+- **Cache busting** automático
 
 ### Deployment
+```bash
+# Build para producción
+npm run build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# El folder 'build' contiene los archivos optimizados
+# Copiar contenido a servidor web (Apache, Nginx, etc.)
+```
 
-### `npm run build` fails to minify
+## 🔧 Configuración Avanzada
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Variables de Entorno Personalizadas
+```env
+# API Configuration
+REACT_APP_API_URL=https://api.midominio.com
+REACT_APP_API_TIMEOUT=10000
+
+# Feature Flags
+REACT_APP_ENABLE_DEBUG=false
+REACT_APP_ENABLE_ANALYTICS=true
+```
+
+### Proxy para Desarrollo
+En `package.json`:
+```json
+{
+  "proxy": "http://localhost:8080"
+}
+```
+
+## 🚨 Solución de Problemas
+
+### Error de CORS
+1. Verificar que el backend tenga CORS configurado
+2. Verificar la URL de la API en `.env`
+3. Usar proxy en desarrollo si es necesario
+
+### Problemas de Conexión
+1. Verificar que el backend esté ejecutándose
+2. Verificar la URL de la API
+3. Revisar la consola del navegador para errores
+
+### Problemas de Rendimiento
+1. Abrir herramientas de desarrollador
+2. Revisar la pestaña Network para requests lentos
+3. Usar React DevTools para debugging
+
+## 🧪 Testing
+
+### Tests Incluidos
+- **Tests de componentes** con React Testing Library
+- **Tests de integración** para flujos completos
+- **Tests de servicios** para API calls
+
+### Ejecutar Tests
+```bash
+npm test                    # Modo watch
+npm test -- --coverage     # Con cobertura
+npm test -- --watchAll=false  # Ejecutar una vez
+```
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crear una rama para la nueva funcionalidad
+3. Implementar cambios con tests
+4. Verificar que el código siga las convenciones
+5. Crear un Pull Request
+
+### Convenciones de Código
+- **ESLint** configurado para React
+- **Prettier** para formateo automático
+- **Conventional Commits** para mensajes de commit
+- **Husky** para hooks de git (opcional)
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+---
+
+## 📚 Recursos Adicionales
+
+- [React Documentation](https://reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Axios Documentation](https://axios-http.com/)
+- [CSS Grid Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
+- [Responsive Design Patterns](https://web.dev/responsive-web-design-basics/)
+
+---
+
+## 🎯 Próximas Funcionalidades
+
+- [ ] **Paginación** para listas grandes de estudiantes
+- [ ] **Exportación** de datos a Excel/CSV
+- [ ] **Importación** masiva de estudiantes
+- [ ] **Dashboard** con estadísticas
+- [ ] **Notificaciones** push
+- [ ] **Tema oscuro** opcional
+- [ ] **Internacionalización** (i18n)
+- [ ] **PWA** (Progressive Web App)
