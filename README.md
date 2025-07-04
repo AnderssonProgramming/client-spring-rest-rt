@@ -4,6 +4,7 @@
 ![Node.js](https://img.shields.io/badge/Node.js-16+-green.svg)
 ![CSS3](https://img.shields.io/badge/CSS3-Modern-orange.svg)
 ![Responsive](https://img.shields.io/badge/Design-Responsive-purple.svg)
+![Azure](https://img.shields.io/badge/Azure-Deployed-blue.svg)
 
 Una aplicación web moderna y responsive desarrollada con React para gestionar información de estudiantes. Interfaz de usuario intuitiva y amigable que se conecta con una API REST de Spring Boot.
 
