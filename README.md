@@ -158,6 +158,13 @@ La aplicación estará disponible en: `http://localhost:3000`
 - **Tabla responsive** con scroll horizontal cuando es necesario
 - **Botones de tamaño apropiado** para touch
 
+## ✨ Visualización
+
+![Pantalla Principal](assets/image.png)
+![Añadir Estudiante](assets/image-1.png)
+![Lista de Estudiantes](assets/image-2.png)
+![Filtro por Correo o Programa](assets/image-3.png)
+
 ## 🔗 Integración con Backend
 
 ### Servicios API
